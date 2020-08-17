@@ -1,0 +1,17 @@
+{
+  "name": "@pgyer/essential-component",
+  "version": "0.0.1",
+  "description": "essential component for pgyer's mui-based project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://codefever.pgyer.com/PGYER/essential_component.git"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@pgyer/icons": "git+ssh:git@codefever.pgyer.com:PGYER/icons.git@latest",
+    "react-intl": "^5.6.0"
+  },
+  "author": "PGYER INFRA",
+  "license": "ISC"
+}
