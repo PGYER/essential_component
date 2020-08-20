@@ -9,12 +9,16 @@
 1. 使用 `yarn` 或 `npm` 安装组件包
 
 ```shell
+
     yarn add git+ssh:git@codefever.pgyer.com:PGYER/essential_component.git@latest
+    yarn upgrade @pgyer/essential-component
+
 ```
 
 2. 在 `public/index.html` 文件中添加以下代码集成 `工单助手`，其中 `product` 和 `color` 参数的设置需要询问 `工单项目的研发同学`
 
 ```html
+
     <script type="text/javascript">
       (function(m, ei, q, i, a, l, h, j, s, c, b) {
           m[a] = m[a] || function() {
@@ -36,6 +40,7 @@
       _INITWORKORDER('lang', (window.localStorage && window.localStorage.getItem('lang') === 'en-us') ? 2 : 1);
       _INITWORKORDER('color', '{--- prohect primary color ---}');
     </script>
+
 ```
 
 ## l18n
