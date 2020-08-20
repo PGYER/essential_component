@@ -38,11 +38,15 @@
     </script>
 ```
 
-## L18N
+## l18n
 
 ShowHelper 组件需要使用语言包显示默认文本。
 
 需要在语言包内设置 `label.learnMore` 为相应的提示语言。 (了解更多 或者 learn more)
+
+## a11y
+
+ShowHelper 组件没有易用性选项。
 
 ## 使用
 
