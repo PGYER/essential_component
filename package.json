@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://codefever.pgyer.com/PGYER/essential_component.git"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@material-ui/core": "^4.11.0",
     "@pgyer/icons": "git+ssh:git@codefever.pgyer.com:PGYER/icons.git@latest",
     "react-intl": "^5.6.0"
