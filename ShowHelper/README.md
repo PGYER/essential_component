@@ -10,8 +10,8 @@
 
 ```shell
 
-    yarn add git+ssh:git@codefever.pgyer.com:PGYER/essential_component.git@latest
-    yarn upgrade @pgyer/essential-component
+yarn add git+ssh:git@codefever.pgyer.com:PGYER/essential_component.git@latest
+yarn upgrade @pgyer/essential-component
 
 ```
 
@@ -19,27 +19,27 @@
 
 ```html
 
-    <script type="text/javascript">
-      (function(m, ei, q, i, a, l, h, j, s, c, b) {
-          m[a] = m[a] || function() {
-        (m[a].a = m[a].a || []).push(arguments)
-          };
-          c = ei.createElement(l);
-          b = ei.getElementsByTagName(l)[0];
-          c.href = h;
-          c.setAttribute('rel', "stylesheet");
-          b.parentNode.insertBefore(c, b);
-          j = ei.createElement(q),
-          s = ei.getElementsByTagName(q)[0];    
-          j.async = true;    
-          j.src = i;    
-          s.parentNode.insertBefore(j, s)
-      })(window, document, 'script',  'https://kf.pgyer.com/dist/smart-online.js', '_INITWORKORDER', 'link', 'https://kf.pgyer.com/dist/smart-online.css');
-      _INITWORKORDER('environment', '');
-      _INITWORKORDER('product', '{--- product ID ---}');
-      _INITWORKORDER('lang', (window.localStorage && window.localStorage.getItem('lang') === 'en-us') ? 2 : 1);
-      _INITWORKORDER('color', '{--- prohect primary color ---}');
-    </script>
+<script type="text/javascript">
+  (function(m, ei, q, i, a, l, h, j, s, c, b) {
+      m[a] = m[a] || function() {
+    (m[a].a = m[a].a || []).push(arguments)
+      };
+      c = ei.createElement(l);
+      b = ei.getElementsByTagName(l)[0];
+      c.href = h;
+      c.setAttribute('rel', "stylesheet");
+      b.parentNode.insertBefore(c, b);
+      j = ei.createElement(q),
+      s = ei.getElementsByTagName(q)[0];    
+      j.async = true;    
+      j.src = i;    
+      s.parentNode.insertBefore(j, s)
+  })(window, document, 'script',  'https://kf.pgyer.com/dist/smart-online.js', '_INITWORKORDER', 'link', 'https://kf.pgyer.com/dist/smart-online.css');
+  _INITWORKORDER('environment', '');
+  _INITWORKORDER('product', '{--- product ID ---}');
+  _INITWORKORDER('lang', (window.localStorage && window.localStorage.getItem('lang') === 'en-us') ? 2 : 1);
+  _INITWORKORDER('color', '{--- prohect primary color ---}');
+</script>
 
 ```
 
@@ -61,7 +61,7 @@ ShowHelper 组件没有易用性选项。
 
 ```javascript
 
-  import ShowHelper from '@pgyer/essential-component/ShowHelper'
+import ShowHelper from '@pgyer/essential-component/ShowHelper'
 
 ```
 
@@ -69,7 +69,7 @@ ShowHelper 组件没有易用性选项。
 
 ```jsx
 
-  <ShowHelper docID='' />
+<ShowHelper docID='' />
 
 ```
 
