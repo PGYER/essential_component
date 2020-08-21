@@ -15,7 +15,33 @@ yarn upgrade @pgyer/essential-component
 
 ```
 
-2. 在 `public/index.html` 文件中添加以下代码集成 `工单助手`，其中 `product` 和 `color` 参数的设置需要询问 `工单项目的研发同学`
+2. 配置 webpack Loader
+
+找到 webpack 配置, 找到 module 配置, 找到 rules 后, 在包含 oneOf 的配置中加入如下代码
+
+```javascript
+
+// Process Module JSX with Babel.
+{
+  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  include: paths.appNodeModules.concat('/@pgyer/essential-component'),
+  loader: require.resolve('babel-loader'),
+  options: {
+    customize: require.resolve(
+      'babel-preset-react-app/webpack-overrides'
+    ),
+    plugins: [
+      '@babel/plugin-transform-react-jsx',
+    ],
+    cacheDirectory: true,
+    cacheCompression: isEnvProduction,
+    compact: isEnvProduction,
+  },
+},
+
+```
+
+3. 在 `public/index.html` 文件中添加以下代码集成 `工单助手`，其中 `product` 和 `color` 参数的设置需要询问 `工单项目的研发同学`
 
 ```html
 
