@@ -17,7 +17,7 @@ yarn upgrade @pgyer/essential-component
 
 2. 配置 webpack Loader
 
-找到 webpack 配置, 找到 module 配置, 找到 rules 后, 在包含 oneOf 的配置中加入如下代码
+找到 `webpack` 配置, 找到 `module` 配置, 找到 `rules` 后, 在包含 `oneOf` 的配置中加入如下代码
 
 ```javascript
 
