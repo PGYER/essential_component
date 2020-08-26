@@ -74,6 +74,8 @@ yarn upgrade @pgyer/essential-component
 | 属性名 | 类型 | 默认值 | 说明 |
 | :---- | :---- | :---- | :---- |
 | key  | Number | 0 | key值 |
+| level  | Number | 0 | 错误等级: 从 0-2 分别是 提示、警告、错误 三个级别。输入其他数值均为警告级别 |
+| offset  | Number | 0 | 消息偏移, 用于错开多个消息重复显示的情况。是一个不小于 0 的整数。其它输入和输入 1 等效 |
 | anchorOrigin  | Object | { vertical: 'top', horizontal: 'right' } | 显示位置 |
 | open  | Boolean | False | 消息框弹出状态 |
 | onClose  | Function | null | 消息框关闭时执行的事件 |

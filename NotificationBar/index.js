@@ -13,7 +13,7 @@ const styles = (theme) => ({})
 
 class NotificationBar extends React.Component {
   render () {
-    const { key, theme, level, open, onClose, message, action, anchorOrigin } = this.props
+    const { key, theme, level, open, onClose, message, action, anchorOrigin, offset } = this.props
     const palette = theme.palette[['success', 'warning', 'error'][level || 0] || 'success']
     const icon = [psConfirm, psExclamationTriangle, psClose][level || 0] || psConfirm
 
@@ -26,6 +26,15 @@ class NotificationBar extends React.Component {
       </>
     )
 
+    const appendStyle = {}
+    const parsedOffset = parseInt(offset) > 0 ? parseInt(offset) : 0
+
+    if (anchorOrigin && anchorOrigin.vertical && anchorOrigin.vertical === 'bottom') {
+      appendStyle.bottom = 24 + (parsedOffset) * 72
+    } else {
+      appendStyle.top = 24 + (parsedOffset) * 72
+    }
+
     return (
       <Snackbar
         key={key}
@@ -35,6 +44,7 @@ class NotificationBar extends React.Component {
         ContentProps={{
           style: { borderLeft: theme.spacing(0.5) + 'px solid ' + palette.main }
         }}
+        style={appendStyle}
         message={messageBody}
         action={action}
       />
@@ -44,6 +54,7 @@ class NotificationBar extends React.Component {
 
 NotificationBar.propTypes = {
   level: PropTypes.number.isRequired,
+  offset: PropTypes.number,
   open: PropTypes.bool.isRequired,
   message: PropTypes.string.isRequired,
   key: PropTypes.number,
