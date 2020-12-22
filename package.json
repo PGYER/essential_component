@@ -1,6 +1,6 @@
 {
   "name": "@pgyer/essential-component",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "essential component for pgyer's mui-based project",
   "main": "index.js",
   "repository": {
@@ -8,6 +8,8 @@
     "url": "https://codefever.pgyer.com/PGYER/essential_component.git"
   },
   "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.0",
     "@pgyer/icons": "^0.0.1",
     "react-intl": "^5.6.0"
