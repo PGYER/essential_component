@@ -19,11 +19,20 @@ const styles = (theme) => ({
 })
 
 class ShowHelper extends React.Component {
+  getDoc () {
+    const { docID } = this.props
+    const data = {
+      docID: docID,
+      verifyKey: 'kf_doc_verify_key'
+    }
+    window.postMessage(data, window.location.origin)
+  }
+
   render () {
-    const { docID, tooltip, title, type, intl } = this.props
+    const { tooltip, title, type, intl } = this.props
     if (type === 'button') {
       return (
-        <Button variant='contained' color='primary' onClick={() => { window.getDoc(docID) }}>
+        <Button variant='contained' color='primary' onClick={() => { this.getDoc() }}>
           <FontAwesomeIcon icon={plHelp} />&nbsp;&nbsp;
           {title || intl.formatMessage({ id: 'label.learnMore' })}
         </Button>
@@ -32,7 +41,7 @@ class ShowHelper extends React.Component {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
           <Typography variant='body2' component='span'>
-            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { window.getDoc(docID) }}>
+            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
               <FontAwesomeIcon icon={plHelp} />
             </a>
           </Typography>
@@ -42,7 +51,7 @@ class ShowHelper extends React.Component {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
           <Typography variant='body2' component='span'>
-            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { window.getDoc(docID) }}>
+            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
               {title || intl.formatMessage({ id: 'label.learnMore' })}&nbsp;
               <FontAwesomeIcon icon={plHelp} />
             </a>

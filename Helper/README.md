@@ -1,8 +1,8 @@
-# ShowHelper
+# Helper
 
 ## 概述
 
-`ShowHelper` 提供文档及提交工单入口。在项目中提供访问 `Seed` 文档的入口。点击 `ShowHelper` 组件即可弹出对应知识库里的文档。
+`Helper` 定义文档弹窗
 
 ## 安装和配置
 
@@ -43,23 +43,21 @@ yarn upgrade @pgyer/essential-component
 
 ## l18n
 
-ShowHelper 组件需要使用语言包显示默认文本。
-
-需要在语言包内设置 `label.learnMore` 为相应的提示语言。 (了解更多 或者 learn more)
+`Helper` 不包含额外的 `l18n` 设置和内容
 
 ## a11y
 
-ShowHelper 组件没有易用性选项。
+`Helper` 不包含额外的 `a11y` 设置和内容
 
 ## 使用
 
-> 注意: 需要配合 &lt;MuiThemeProvider /&gt; 和 &lt;IntlProvider /&gt; 使用
+> 注意: 需要配合 &lt;MuiThemeProvider /&gt; 使用
 
 1. 引入
 
 ```javascript
 
-import ShowHelper from '@pgyer/essential-component/ShowHelper'
+  import Helper from '@pgyer/essential-component/Helper'
 
 ```
 
@@ -67,7 +65,9 @@ import ShowHelper from '@pgyer/essential-component/ShowHelper'
 
 ```jsx
 
-<ShowHelper docID='' />
+  <Helper language='zh-cn'>
+  {children}
+</Helper>
 
 ```
 
@@ -75,7 +75,5 @@ import ShowHelper from '@pgyer/essential-component/ShowHelper'
 
 | 属性名 | 类型 | 默认值 | 说明 |
 | :---- | :---- | :---- | :---- |
-| docID  | String | '' | Seed 上的 DocID |
-| title  | String | label.learnMore 对应的文本 | title 文本 |
-| tooltip  | String | label.learnMore 对应的文本 | tooltip 出现的文本 |
-| type  | String | 'link' | 显示模式。'icon': 只显示一个图标； 'button': 显示图标和 title 文本组成的按钮; 'link': 显示为以 title 文本为内容的链接 |
+| language  | String | '' | 语言 |
+| children  | Object | '' | 弹窗中内容 |
