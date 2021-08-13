@@ -19,6 +19,7 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.primary.main,
     position: 'fixed',
     bottom: theme.spacing(10) + 'px',
+    transition: 'all .1s',
     right: 0,
     zIndex: 1250,
     cursor: 'pointer',
@@ -30,6 +31,9 @@ const styles = (theme) => ({
     flexFlow: 'column wrap',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  hideHelper: {
+    right: '-30px'
   },
   helperIcon: {
     fontSize: theme.spacing(2) + 'px'
@@ -46,6 +50,7 @@ const styles = (theme) => ({
   robot: {
     position: 'fixed',
     bottom: '-' + theme.spacing(70) + 'px',
+    transition: 'all .5s',
     right: theme.spacing(2) + 'px',
     width: theme.spacing(45),
     height: theme.spacing(66),
@@ -53,6 +58,9 @@ const styles = (theme) => ({
     boxShadow: '0px 4px 16px 0px rgba(0, 0, 0, 0.21)',
     backgroundColor: '#fff',
     borderRadius: theme.spacing(1) + 'px'
+  },
+  showRobot: {
+    bottom: theme.spacing(1) + 'px'
   },
   robotHeader: {
     width: '100%',
@@ -161,6 +169,7 @@ class Helper extends React.Component {
     }
 
     this.setState({
+      open: true,
       helperClass: 'leftToRight',
       robotClass: 'bottomToTop'
     })
@@ -180,14 +189,14 @@ class Helper extends React.Component {
 
   render () {
     const { classes, children } = this.props
-    const { helperClass, robotClass } = this.state
+    const { open } = this.state
     return (
       <>
-        <Grid className={[classes.helper, helperClass ? classes[helperClass] : ''].join(' ')} onClick={() => this.show()}>
+        <Grid className={[classes.helper, open ? classes.hideHelper : ''].join(' ')} onClick={() => this.show()}>
           <FontAwesomeIcon icon={plHelp} className={classes.helperIcon} />
           <Typography variant='body1' component='div' className={classes.helperText}>{this.isZHCN() ? '帮助' : 'HELP'}</Typography>
         </Grid>
-        <Grid className={[classes.robot, robotClass ? classes[robotClass] : ''].join(' ')}>
+        <Grid className={[classes.robot, open ? classes.showRobot : ''].join(' ')}>
           <Grid className={classes.robotHeader}>
             <Grid>
               <Typography variant='body1' component='span' className={classes.white}>{this.isZHCN() ? '文档' : 'DOC'} | Powered By Seed</Typography>
