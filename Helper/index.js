@@ -90,54 +90,6 @@ const styles = (theme) => ({
     flexFlow: 'row nowrap',
     justifyContent: 'flex-end',
     alignItems: 'center'
-  },
-  leftToRight: {
-    animation: '$leftToRight 0.3s ease-out forwards',
-    right: '-30px'
-  },
-  rightToLeft: {
-    animation: '$rightToLeft 0.3s ease-in forwards',
-    right: 0
-  },
-  topToBottom: {
-    animation: '$topToBottom 0.3s ease-out forwards',
-    bottom: '-' + theme.spacing(70)
-  },
-  bottomToTop: {
-    animation: '$bottomToTop 0.3s ease-in forwards',
-    bottom: theme.spacing(1) + 'px'
-  },
-  '@keyframes leftToRight': {
-    from: {
-      right: '0px'
-    },
-    to: {
-      right: '-30px'
-    }
-  },
-  '@keyframes rightToLeft': {
-    from: {
-      right: '-30px'
-    },
-    to: {
-      right: '0px'
-    }
-  },
-  '@keyframes topToBottom': {
-    from: {
-      bottom: theme.spacing(1) + 'px'
-    },
-    to: {
-      bottom: '-' + theme.spacing(70)
-    }
-  },
-  '@keyframes bottomToTop': {
-    from: {
-      bottom: '-' + theme.spacing(70)
-    },
-    to: {
-      bottom: theme.spacing(1) + 'px'
-    }
   }
 })
 
@@ -145,9 +97,7 @@ class Helper extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      open: false,
-      helperClass: '',
-      robotClass: ''
+      open: false
     }
   }
 
@@ -169,16 +119,12 @@ class Helper extends React.Component {
     }
 
     this.setState({
-      open: true,
-      helperClass: 'leftToRight',
-      robotClass: 'bottomToTop'
+      open: true
     })
   }
 
   hide () {
     this.setState({
-      helperClass: 'rightToLeft',
-      robotClass: 'topToBottom',
       open: false
     })
   }
