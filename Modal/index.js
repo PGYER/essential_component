@@ -15,7 +15,7 @@ const styles = theme => ({
     top: 0,
     backgroundColor: '#000',
     opacity: '0.2',
-    zIndex: 1201
+    zIndex: 1202
   },
   content: {
     width: '80vw',
