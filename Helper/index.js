@@ -50,7 +50,7 @@ const styles = (theme) => ({
   robot: {
     position: 'fixed',
     bottom: '-' + theme.spacing(70) + 'px',
-    transition: 'all .5s',
+    transition: 'all .3s',
     right: theme.spacing(2) + 'px',
     width: theme.spacing(45),
     height: theme.spacing(66),
