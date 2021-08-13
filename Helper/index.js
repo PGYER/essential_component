@@ -48,7 +48,7 @@ const styles = (theme) => ({
     bottom: '-' + theme.spacing(70) + 'px',
     right: theme.spacing(2) + 'px',
     width: theme.spacing(45),
-    height: theme.spacing(65),
+    height: theme.spacing(66),
     zIndex: 2000,
     boxShadow: '0px 4px 16px 0px rgba(0, 0, 0, 0.21)',
     backgroundColor: '#fff',
@@ -67,6 +67,9 @@ const styles = (theme) => ({
     flexFlow: 'row nowrap',
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  robotBody: {
+    height: theme.spacing(60)
   },
   white: {
     color: '#fff'
@@ -135,7 +138,6 @@ class Helper extends React.Component {
     super(props)
     this.state = {
       open: false,
-      loaded: false,
       helperClass: '',
       robotClass: ''
     }
@@ -160,8 +162,7 @@ class Helper extends React.Component {
 
     this.setState({
       helperClass: 'leftToRight',
-      robotClass: 'bottomToTop',
-      loaded: true
+      robotClass: 'bottomToTop'
     })
   }
 
@@ -179,7 +180,7 @@ class Helper extends React.Component {
 
   render () {
     const { classes, children } = this.props
-    const { helperClass, robotClass, loaded } = this.state
+    const { helperClass, robotClass } = this.state
     return (
       <>
         <Grid className={[classes.helper, helperClass ? classes[helperClass] : ''].join(' ')} onClick={() => this.show()}>
@@ -193,8 +194,8 @@ class Helper extends React.Component {
             </Grid>
             <Grid className={classes.down} onClick={() => this.hide()}><FontAwesomeIcon icon={plAngleDown} className={classes.helperIcon} /></Grid>
           </Grid>
-          <Grid>
-            {loaded && children}
+          <Grid className={classes.robotBody}>
+            {children}
           </Grid>
         </Grid>
       </>
