@@ -20,7 +20,7 @@ const styles = (theme) => ({
     position: 'fixed',
     bottom: theme.spacing(10) + 'px',
     right: 0,
-    zIndex: 2000,
+    zIndex: 1250,
     cursor: 'pointer',
     color: '#fff',
     textAlign: 'center',
@@ -49,7 +49,7 @@ const styles = (theme) => ({
     right: theme.spacing(2) + 'px',
     width: theme.spacing(45),
     height: theme.spacing(66),
-    zIndex: 2000,
+    zIndex: 1250,
     boxShadow: '0px 4px 16px 0px rgba(0, 0, 0, 0.21)',
     backgroundColor: '#fff',
     borderRadius: theme.spacing(1) + 'px'

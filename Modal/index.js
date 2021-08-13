@@ -15,7 +15,7 @@ const styles = theme => ({
     top: 0,
     backgroundColor: '#000',
     opacity: '0.2',
-    zIndex: 2001
+    zIndex: 1251
   },
   content: {
     width: '80vw',
@@ -23,7 +23,7 @@ const styles = theme => ({
     position: 'fixed',
     left: '10vw',
     top: '10vh',
-    zIndex: 2001,
+    zIndex: 1251,
     padding: theme.spacing(2),
     background: '#fff',
     boxSizing: 'border-box',
