@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { plClose } from '@pgyer/icons'
 
 // style
 const styles = theme => ({
@@ -28,6 +30,14 @@ const styles = theme => ({
     background: '#fff',
     boxSizing: 'border-box',
     overflow: 'scroll'
+  },
+  close: {
+    fontSize: theme.spacing(3) + 'px',
+    position: 'absolute',
+    right: theme.spacing(4) + 'px',
+    top: theme.spacing(3) + 'px',
+    cursor: 'pointer',
+    color: '#8C8C8C'
   }
 })
 
@@ -37,7 +47,15 @@ class Modal extends React.Component {
     return (
       <>
         {open && <Grid className={classes.mask} onClick={() => onClose()} />}
-        {open && <Grid className={classes.content}>{children}</Grid>}
+        {
+          open &&
+            <Grid className={classes.content}>
+              {children}
+              <Grid className={classes.close} onClick={() => onClose()}>
+                <FontAwesomeIcon icon={plClose} />
+              </Grid>
+            </Grid>
+        }
       </>
     )
   }
