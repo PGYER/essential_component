@@ -19,7 +19,7 @@ const styles = theme => ({
     opacity: '0.2',
     zIndex: 1251
   },
-  content: {
+  box: {
     width: '80vw',
     height: '80vh',
     position: 'fixed',
@@ -29,15 +29,31 @@ const styles = theme => ({
     padding: theme.spacing(2),
     background: '#fff',
     boxSizing: 'border-box',
+    // overflow: 'scroll',
+    paddingTop: theme.spacing(3) + 'px'
+  },
+  content: {
+    width: '100%',
+    height: '100%',
     overflow: 'scroll'
   },
   close: {
-    fontSize: theme.spacing(3) + 'px',
+    width: theme.spacing(4),
+    height: theme.spacing(4),
     position: 'absolute',
-    right: theme.spacing(4) + 'px',
-    top: theme.spacing(3) + 'px',
+    top: '-' + theme.spacing(1) + 'px',
+    right: '-' + theme.spacing(1) + 'px',
+    color: theme.palette.secondary.contrastText,
+    textAlign: 'center',
+    lineHeight: theme.spacing(4) + 'px',
     cursor: 'pointer',
-    color: '#8C8C8C'
+    borderRadius: theme.spacing(0.5),
+    background: theme.palette.primary.main
+  },
+  icon: {
+    width: theme.spacing(1.5),
+    height: theme.spacing(1.5),
+    verticalAlign: 'unset'
   }
 })
 
@@ -49,10 +65,12 @@ class Modal extends React.Component {
         {open && <Grid className={classes.mask} onClick={() => onClose()} />}
         {
           open &&
-            <Grid className={classes.content}>
-              {children}
-              <Grid className={classes.close} onClick={() => onClose()}>
-                <FontAwesomeIcon icon={plClose} />
+            <Grid className={classes.box}>
+              <span className={classes.close} onClick={(e) => onClose()}>
+                <FontAwesomeIcon className={classes.icon} icon={plClose} />
+              </span>
+              <Grid className={classes.content}>
+                {children}
               </Grid>
             </Grid>
         }
