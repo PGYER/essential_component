@@ -21,23 +21,22 @@ yarn upgrade @pgyer/essential-component
 
 ```javascript
 
-// Process Module JSX with Babel.
+// 老版本 create-react-app, 可能是这样的
 {
   test: /\.(js|mjs|jsx|ts|tsx)$/,
   include: paths.appNodeModules.concat('/@pgyer/essential-component'),
   loader: require.resolve('babel-loader'),
-  options: {
-    customize: require.resolve(
-      'babel-preset-react-app/webpack-overrides'
-    ),
-    plugins: [
-      '@babel/plugin-transform-react-jsx',
-    ],
-    cacheDirectory: true,
-    cacheCompression: isEnvProduction,
-    compact: isEnvProduction,
-  },
-},
+...
+
+// 升级新版 create-react-app 以后, 可能是这样的
+{
+  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  include: [
+    paths.appSrc,
+    paths.appNodeModules.concat('/@pgyer/essential-component')
+  ],
+  loader: require.resolve('babel-loader'),
+...
 
 ```
 
@@ -67,7 +66,7 @@ yarn upgrade @pgyer/essential-component
 
   <Helper language='zh-cn'>
   {children}
-</Helper>
+  </Helper>
 
 ```
 

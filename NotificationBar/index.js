@@ -18,12 +18,12 @@ class NotificationBar extends React.Component {
     const icon = [psConfirm, psExclamationTriangle, psClose][level || 0] || psConfirm
 
     const messageBody = (
-      <React.Fragment>
+      <>
         <span style={{ color: palette.main }}>
           <FontAwesomeIcon icon={icon} /> &nbsp;&nbsp;
         </span>
         <Typography variant='body2' component='span'>{message}</Typography>
-      </React.Fragment>
+      </>
     )
 
     const appendStyle = {}
