@@ -75,6 +75,7 @@ import ShowHelper from '@pgyer/essential-component/ShowHelper'
 | 属性名 | 类型 | 默认值 | 说明 |
 | :---- | :---- | :---- | :---- |
 | docID  | String | '' | Seed 上的 DocID |
+| appID  | String | '' | KF 上的 Doc 分类用来确定 Doc 来源, 如果不填写则由当前 KF Session 所在 app 决定 |
 | title  | String | label.learnMore 对应的文本 | title 文本 |
 | tooltip  | String | label.learnMore 对应的文本 | tooltip 出现的文本 |
 | type  | String | 'link' | 显示模式。'icon': 只显示一个图标； 'button': 显示图标和 title 文本组成的按钮; 'link': 显示为以 title 文本为内容的链接 |

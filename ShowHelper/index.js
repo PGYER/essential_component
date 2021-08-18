@@ -20,9 +20,10 @@ const styles = (theme) => ({
 
 class ShowHelper extends React.Component {
   getDoc () {
-    const { docID } = this.props
+    const { docID, appID } = this.props
     const data = {
       docID: docID,
+      appID: appID,
       verifyKey: 'kf_doc_verify_key'
     }
     window.postMessage(data, window.location.origin)
@@ -64,6 +65,7 @@ class ShowHelper extends React.Component {
 
 ShowHelper.propTypes = {
   docID: PropTypes.string,
+  appID: PropTypes.string,
   title: PropTypes.string,
   tooltip: PropTypes.string,
   type: PropTypes.string,
