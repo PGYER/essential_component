@@ -141,7 +141,7 @@ location ~ ^/_pgyer_id_/ {
 
 ```javascript
 
-  import Helper from '@pgyer/essential-component/MFEContainer'
+  import MFEContainer from '@pgyer/essential-component/MFEContainer'
 
 ```
 
