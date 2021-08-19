@@ -104,8 +104,6 @@ class Helper extends React.Component {
       hooks: Object.create({}),
       showCreateTicket: false
     }
-
-    this.tag = new Date().getTime()
   }
 
   componentDidMount () {

@@ -152,6 +152,8 @@ class MFEContainer extends React.Component {
       anchor: '#root' + this.instanceID,
       hooks: this.hooks
     })
+
+    this.updateHooks(this.props.hooks)
   }
 
   unmountApp () {
