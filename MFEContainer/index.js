@@ -41,6 +41,11 @@ class MFEContainer extends React.Component {
       return false
     }
 
+    if (nextProps.hooks !== this.props.hooks) {
+      this.updateHooks(nextProps.hooks)
+      return false
+    }
+
     return true
   }
 
@@ -156,6 +161,13 @@ class MFEContainer extends React.Component {
     window[this.appID].hooks.unmount({
       anchor: '#root' + this.instanceID
     })
+  }
+
+  updateHooks (hooks) {
+    window[this.appID] &&
+    window[this.appID].hooks &&
+    typeof window[this.appID].hooks.updateHooks === 'function' &&
+    window[this.appID].hooks.updateHooks(hooks)
   }
 
   render () {

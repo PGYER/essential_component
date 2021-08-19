@@ -2,7 +2,7 @@
 
 ## 概述
 
-`Helper` 定义文档弹窗
+`Helper` 定义了一个源自于工单系统的快速帮助窗口，可以快速搜索、显示 Seed 文档，并且可以直接在当前页面提交工单。
 
 ## 安装和配置
 
@@ -40,6 +40,24 @@ yarn upgrade @pgyer/essential-component
 
 ```
 
+3. nginx 转发配置
+
+由于文档系统依赖了 MFEContainer 组件并链接工单服务，需要在集成方 nginx 上设置功能与如下类似的转发。
+
+```conf
+
+location ~ ^/_pgyer_kf_/ {
+    rewrite /_pgyer_kf_(.*) /$1 break;
+    proxy_pass http://kf.pgyer.yunhuiju.com;
+}
+
+location ~ ^/_pgyer_seed_/ {
+    rewrite /_pgyer_seed_(.*) /$1 break;
+    proxy_pass http://wiki.pgyer.yunhuiju.com;
+}
+
+```
+
 ## l18n
 
 `Helper` 不包含额外的 `l18n` 设置和内容
@@ -64,9 +82,7 @@ yarn upgrade @pgyer/essential-component
 
 ```jsx
 
-  <Helper language='zh-cn'>
-  {children}
-  </Helper>
+  <Helper language='zh-cn' />
 
 ```
 
@@ -74,5 +90,4 @@ yarn upgrade @pgyer/essential-component
 
 | 属性名 | 类型 | 默认值 | 说明 |
 | :---- | :---- | :---- | :---- |
-| language  | String | '' | 语言 |
-| children  | Object | '' | 弹窗中内容 |
+| language  | String | 'zh-cn' 或 'en-us' | 语言 |

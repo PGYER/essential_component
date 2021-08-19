@@ -78,7 +78,8 @@ options 属性列表
 | 名称 | mount 时包含 | unmount 时包含 | 类型 | 含义 |
 | :- | :- | :- | :- | :- |
 | anchor | O | O | String | 用户装载应用的 DOM 的选择器字符串 |
-| route | O | X | String | 应用初始化时的路由 |
+| route | O | X | String | 当此值不为空时, 容器内应用拥有自己的路由系统, 应用使用该路由值初始化 |
+| routeBaseName | O | X | String | 当 route 值为空时, 应用响应浏览器地址进行路由, 执行此参数来指定路由 baseName |
 | hooks | O | X | Object | 应用间通信的 hooks |
 
 
@@ -89,7 +90,8 @@ index.js 需要暴露的属性, 具体函数应该替换为控制应用装载卸
 export const hooks = {
   mount: (options) => {},
   unmount: (options) => {},
-  setLanguage: (lang) => {} // 可选，子应用注册这个用来感知父应用语言变化。
+  updateHooks: (hooks) => {}, // 更新业务 hooks ，可选，传入的 hooks 将会附加在原有的 hooks 列表中，同名的 fn 会被覆盖。
+  setLanguage: (lang) => {} // 多语言控制，可选，子应用注册这个用来感知父应用语言变化。
 }
 
 ```

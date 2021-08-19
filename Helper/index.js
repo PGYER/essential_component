@@ -9,6 +9,9 @@ import { plHelp, plAngleDown } from '@pgyer/icons'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
+import MFEContainer from '../MFEContainer'
+import Modal from '../Modal'
+
 const styles = (theme) => ({
   hidden: {
     display: 'none'
@@ -97,8 +100,12 @@ class Helper extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      open: false
+      open: false,
+      hooks: Object.create({}),
+      showCreateTicket: false
     }
+
+    this.tag = new Date().getTime()
   }
 
   componentDidMount () {
@@ -109,6 +116,15 @@ class Helper extends React.Component {
         e.data.verifyKey === 'kf_doc_verify_key'
       ) {
         this.show()
+      }
+    })
+
+    this.setState({
+      hooks: {
+        ...this.state.hooks,
+        createTicket: () => {
+          this.setState({ showCreateTicket: true })
+        }
       }
     })
   }
@@ -134,8 +150,8 @@ class Helper extends React.Component {
   }
 
   render () {
-    const { classes, children } = this.props
-    const { open } = this.state
+    const { classes } = this.props
+    const { open, showCreateTicket, hooks } = this.state
     return (
       <>
         <Grid className={[classes.helper, open ? classes.hideHelper : ''].join(' ')} onClick={() => this.show()}>
@@ -150,7 +166,21 @@ class Helper extends React.Component {
             <Grid className={classes.down} onClick={() => this.hide()}><FontAwesomeIcon icon={plAngleDown} className={classes.helperIcon} /></Grid>
           </Grid>
           <Grid className={classes.robotBody}>
-            {children}
+            <MFEContainer
+              appID='_pgyer_kf_'
+              appPath='app/index.html'
+              route='/smartOnline'
+              hooks={hooks}
+            />
+            {showCreateTicket &&
+              <Modal open={showCreateTicket} onClose={() => this.setState({ showCreateTicket: false })}>
+                <MFEContainer
+                  appID='_pgyer_kf_'
+                  appPath='app/index.html'
+                  route='/createTicket'
+                  hooks={hooks}
+                />
+              </Modal>}
           </Grid>
         </Grid>
       </>
@@ -160,8 +190,7 @@ class Helper extends React.Component {
 
 Helper.propTypes = {
   classes: PropTypes.object.isRequired,
-  language: PropTypes.oneOf(['zh-cn', 'en-us']),
-  children: PropTypes.any.isRequired
+  language: PropTypes.oneOf(['zh-cn', 'en-us'])
 }
 
 export default withTheme(
