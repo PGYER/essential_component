@@ -149,6 +149,7 @@ class MFEContainer extends React.Component {
     typeof window[this.appID].hooks.mount === 'function' &&
     window[this.appID].hooks.mount({
       route: this.props.route,
+      routeBaseName: this.props.routeBaseName,
       anchor: '#root' + this.instanceID,
       hooks: this.hooks
     })
@@ -188,7 +189,8 @@ MFEContainer.propTypes = {
   classes: PropTypes.object.isRequired,
   appID: PropTypes.string.isRequired,
   appPath: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired,
+  route: PropTypes.string,
+  routeBaseName: PropTypes.string,
   hooks: PropTypes.object.isRequired
 }
 

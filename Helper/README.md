@@ -82,12 +82,10 @@ location ~ ^/_pgyer_seed_/ {
 
 ```jsx
 
-  <Helper language='zh-cn' />
+  <Helper />
 
 ```
 
 ## 属性列表
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| :---- | :---- | :---- | :---- |
-| language  | String | 'zh-cn' 或 'en-us' | 语言 |
+本组件无其它属性

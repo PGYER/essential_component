@@ -1,6 +1,7 @@
 // core
 import React from 'react'
 import PropTypes from 'prop-types'
+import { injectIntl } from 'react-intl'
 
 // components
 import { withStyles, withTheme } from '@material-ui/core/styles'
@@ -144,7 +145,7 @@ class Helper extends React.Component {
   }
 
   isZHCN () {
-    return this.props.language === 'zh-cn'
+    return this.props.intl.locale === 'zh-cn'
   }
 
   render () {
@@ -188,9 +189,11 @@ class Helper extends React.Component {
 
 Helper.propTypes = {
   classes: PropTypes.object.isRequired,
-  language: PropTypes.oneOf(['zh-cn', 'en-us'])
+  intl: PropTypes.object.isRequired
 }
 
-export default withTheme(
-  withStyles(styles)(Helper)
+export default injectIntl(
+  withTheme(
+    withStyles(styles)(Helper)
+  )
 )

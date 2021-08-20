@@ -166,5 +166,6 @@ location ~ ^/_pgyer_id_/ {
 | :---- | :---- | :---- | :---- |
 | appID  | String | '' | 被加载应用 appID |
 | appPath  | String | '' | 被加载应用 html entry |
-| route  | String | '' | 初始化路由 |
+| route | O | X | String | 当此值不为空时, 容器内应用拥有自己的路由系统, 应用使用该路由值初始化 |
+| routeBaseName | O | X | String | 当 route 值为空时, 应用响应浏览器地址进行路由, 执行此参数来指定路由 baseName |
 | hooks  | Object | null | 应用间通信 hooks |
