@@ -41,21 +41,29 @@ class ShowHelper extends React.Component {
     } else if (type === 'icon') {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
-          <Typography variant='body2' component='span'>
-            <a className={classes.mainColor} style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
-              <FontAwesomeIcon icon={plHelp} />
-            </a>
+          <Typography
+            variant='body2'
+            component='span'
+            className={classes.mainColor}
+            style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
+            onClick={() => { this.getDoc() }}
+          >
+            <FontAwesomeIcon icon={plHelp} />
           </Typography>
         </Tooltip>
       )
     } else {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
-          <Typography variant='body2' component='span'>
-            <a className={classes.mainColor} style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
-              {title || intl.formatMessage({ id: 'label.learnMore' })}&nbsp;
-              <FontAwesomeIcon icon={plHelp} />
-            </a>
+          <Typography
+            variant='body2'
+            component='span'
+            className={classes.mainColor}
+            style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
+            onClick={() => { this.getDoc() }}
+          >
+            {title || intl.formatMessage({ id: 'label.learnMore' })}&nbsp;
+            <FontAwesomeIcon icon={plHelp} />
           </Typography>
         </Tooltip>
       )
