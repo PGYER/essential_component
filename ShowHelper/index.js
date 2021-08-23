@@ -14,7 +14,7 @@ import { plHelp } from '@pgyer/icons'
 
 const styles = (theme) => ({
   mainColor: {
-    color: theme.palette.info.main
+    color: theme.palette.primary.main
   }
 })
 
