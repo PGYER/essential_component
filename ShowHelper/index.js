@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { plHelp } from '@pgyer/icons'
 
 const styles = (theme) => ({
-  progress: {
+  mainColor: {
     color: theme.palette.info.main
   }
 })
@@ -30,7 +30,7 @@ class ShowHelper extends React.Component {
   }
 
   render () {
-    const { tooltip, title, type, intl } = this.props
+    const { tooltip, title, type, intl, classes } = this.props
     if (type === 'button') {
       return (
         <Button variant='contained' color='primary' onClick={() => { this.getDoc() }}>
@@ -42,7 +42,7 @@ class ShowHelper extends React.Component {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
           <Typography variant='body2' component='span'>
-            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
+            <a className={classes.mainColor} style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
               <FontAwesomeIcon icon={plHelp} />
             </a>
           </Typography>
@@ -52,7 +52,7 @@ class ShowHelper extends React.Component {
       return (
         <Tooltip title={tooltip || intl.formatMessage({ id: 'label.learnMore' })} placement='top'>
           <Typography variant='body2' component='span'>
-            <a style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
+            <a className={classes.mainColor} style={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => { this.getDoc() }}>
               {title || intl.formatMessage({ id: 'label.learnMore' })}&nbsp;
               <FontAwesomeIcon icon={plHelp} />
             </a>
@@ -69,6 +69,7 @@ ShowHelper.propTypes = {
   title: PropTypes.string,
   tooltip: PropTypes.string,
   type: PropTypes.string,
+  classes: PropTypes.object.isRequired,
   intl: PropTypes.object.isRequired
 }
 
