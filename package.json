@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://codefever.pgyer.com/PGYER/essential_component.git"
+    "url": "https://github.com/PGYER/essential_component.git"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
@@ -17,6 +17,6 @@
   "files": [
     "components"
   ],
-  "author": "PGYER INFRA",
+  "author": "PGYER",
   "license": "ISC"
 }
