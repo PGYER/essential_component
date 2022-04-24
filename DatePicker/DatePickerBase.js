@@ -172,7 +172,7 @@ class DatePickerBase extends React.Component {
       'zh-cn': ['一', '二', '三', '四', '五', '六', '日'],
       'en-us': ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
     }[language]
-    let date = this.timeStampToDate(new Date([year, month].join('-')).getTime())
+    let date = this.timeStampToDate(new Date([year, this.formatNumber(month)].join('-')).getTime())
     date = this.diffOneDayDate(date, 1 - (!date.getDay() ? 7 : date.getDay()))
 
     while (days.length !== 7 * 7) {
@@ -189,7 +189,11 @@ class DatePickerBase extends React.Component {
 
   timeStampToDate (timestamp) {
     const date = new Date(timestamp)
-    return timestamp && new Date([date.getFullYear(), date.getMonth() + 1, '00' + date.getDate()].join('-'))
+    return timestamp && new Date([date.getFullYear(), this.formatNumber(date.getMonth() + 1), this.formatNumber(date.getDate()) + 'T00:00:00'].join('-'))
+  }
+
+  formatNumber (num) {
+    return num < 10 ? '0' + num : num
   }
 
   changeDateRange (date) {
