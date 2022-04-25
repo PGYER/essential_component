@@ -93,7 +93,7 @@ class DatePickerRange extends React.Component {
 
   render () {
     const { year, month, startDate, endDate, btnOffset } = this.state
-    const { onChange, classes } = this.props
+    const { onChange, onClose, classes } = this.props
     const monthTmp = month + 1
     const newYear = year + (monthTmp > 12 ? 1 : 0)
     const newMonth = monthTmp > 12 ? 1 : monthTmp
@@ -160,7 +160,7 @@ class DatePickerRange extends React.Component {
               />
             </Grid>
             <Grid className={classes.btnGroup}>
-              <Button color='primary' variant='outlined'>{this.isZHCN() ? '取消' : 'Cancel'}</Button>
+              <Button color='primary' variant='outlined' onClick={() => onClose()}>{this.isZHCN() ? '取消' : 'Cancel'}</Button>
               <Button
                 color='primary'
                 variant='contained'
@@ -180,6 +180,7 @@ DatePickerRange.propTypes = {
   startDate: PropTypes.number,
   endDate: PropTypes.number,
   onChange: PropTypes.func,
+  onClose: PropTypes.func,
   language: PropTypes.oneOf(['zh-cn', 'en-us']),
   classes: PropTypes.object.isRequired
 }
