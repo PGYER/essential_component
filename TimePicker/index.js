@@ -84,6 +84,10 @@ class TimePicker extends React.Component {
     this.HMSRef = [React.createRef(), React.createRef(), React.createRef()]
   }
 
+  componentDidMount () {
+    this.scroll('all', 'auto')
+  }
+
   createArray (max) {
     return new Array(max).fill(0).map((item, index) => this.intFillZero(index))
   }

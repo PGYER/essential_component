@@ -52,7 +52,7 @@ TimePicker 组件没有易用性选项。
 
 ```javascript
 
-import DatePicker from '@pgyer/essential-component/TimePicker'
+import TimePicker from '@pgyer/essential-component/TimePicker'
 
 ```
 
