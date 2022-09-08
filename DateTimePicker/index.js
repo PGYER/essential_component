@@ -38,8 +38,8 @@ class DateTimePicker extends React.Component {
 
     this.state = {
       timeAnchor: null,
-      resultDate: 0,
-      resultTime: 0,
+      resultDate: props.time > 0 ? new Date(this.timeStampToDate(props.time)).getTime() : 0,
+      resultTime: props.time > 0 ? (this.timeStampToTime(props.time).split(':')[0] * 60 * 60 + this.timeStampToTime(props.time).split(':')[1] * 60) * 1000 : 0,
       date: {
         year: now.getFullYear(),
         month: now.getMonth() + 1,
@@ -157,7 +157,6 @@ class DateTimePicker extends React.Component {
     const { resultDate, resultTime } = this.state
     const { onChange } = this.props
 
-    console.log(resultDate, resultTime)
     onChange({ date: resultDate + resultTime })
   }
 
