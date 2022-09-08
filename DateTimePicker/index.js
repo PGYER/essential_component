@@ -188,8 +188,8 @@ class DateTimePicker extends React.Component {
         >
           <TimePicker
             language={!this.props.language ? 'zh-cn' : this.props.language}
-            hour={time.hour}
-            minute={time.minute}
+            hour={parseInt(time.hour)}
+            minute={parseInt(time.minute)}
             confirm={data => this.changeTime(data)}
           />
         </Popover>
