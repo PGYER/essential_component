@@ -39,7 +39,7 @@ class DateTimePicker extends React.Component {
     this.state = {
       timeAnchor: null,
       resultDate: props.time > 0 ? new Date(this.timeStampToDate(props.time)).getTime() : 0,
-      resultTime: props.time > 0 ? (this.timeStampToTime(props.time).split(':')[0] * 60 * 60 + this.timeStampToTime(props.time).split(':')[1] * 60) * 1000 : 0,
+      resultTime: props.time > 0 ? ((this.timeStampToTime(props.time).split(':')[0] * 60 * 60 + this.timeStampToTime(props.time).split(':')[1] * 60) * 1000) : 0,
       date: {
         year: now.getFullYear(),
         month: now.getMonth() + 1,
@@ -68,7 +68,7 @@ class DateTimePicker extends React.Component {
       return ''
     }
     const date = new Date(timestamp)
-    return [date.getHours, date.getMinutes()].join(':')
+    return [date.getHours(), date.getMinutes()].join(':')
   }
 
   formatNumber (num) {
