@@ -61,7 +61,9 @@ import DatePicker from '@pgyer/essential-component/DateTimePicker'
 ```jsx
 
 <DateTimePicker
-  time={1599091200000}
+  time={1662704852997}
+  divideTime={1662704852997}
+  divideType='before'
   onChange={data => console.log(data)}
   language='zh-cn'
 />
@@ -73,5 +75,7 @@ import DatePicker from '@pgyer/essential-component/DateTimePicker'
 | 属性名 | 类型 | 默认值 | 说明 |
 | :---- | :---- | :---- | :---- |
 | time | Number | 时间 | 毫秒时间戳 |
+| divideTime | Number | 分隔时间 | 毫秒时间戳 |
+| divideType  | String | undefined | 分隔类型，只能选择分割时间前(divideType='before')、只能选择分割时间前(divideType='after') |
 | onChange  | Func | 选择后回调 | 提供{start: timestamp, end: timestamp} |
 | language  | String | 语言 | zh-cn、en-us |

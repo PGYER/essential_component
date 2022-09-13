@@ -145,7 +145,7 @@ class DateTimePicker extends React.Component {
 
       this.setState({
         resultDate: new Date(fixedDate).getTime(),
-        resultTime: (fixedTime.split[0] * 60 * 60 + fixedTime.split[1] * 60) * 1000,
+        resultTime: (fixedTime.split(':')[0] * 60 * 60 + fixedTime.split(':')[1] * 60) * 1000,
         date: { ...date, ...{ startDate: new Date(fixedDate).getTime } }
       })
     }
