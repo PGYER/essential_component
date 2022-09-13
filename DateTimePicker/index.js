@@ -103,8 +103,13 @@ class DateTimePicker extends React.Component {
   changeDate (data) {
     const { date } = this.state
     this.setState({
-      resultDate: data.startDate,
       date: { ...date, ...data }
+    })
+    if (!data.startDate) {
+      return true
+    }
+    this.setState({
+      resultDate: data.startDate
     })
     setTimeout(() => this.checkDateTime())
   }
