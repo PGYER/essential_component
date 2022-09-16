@@ -7,6 +7,8 @@ import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Popover from '@material-ui/core/Popover'
 import Typography from '@material-ui/core/Typography'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { plClose } from '@pgyer/icons'
 
 import DatePickerBase from '../DatePicker/DatePickerBase'
 import TimePicker from '../TimePicker/index'
@@ -21,12 +23,23 @@ const styles = (theme) => ({
     marginLeft: theme.spacing(1),
     border: '1px solid ' + theme.palette.border,
     borderRadius: theme.spacing(0.5),
+    justifyContent: 'space-between'
+  },
+  flexRow: {
     display: 'flex',
     flexFlow: 'row nowrap',
     alignItems: 'center'
   },
   time: {
     marginLeft: theme.spacing(1),
+    cursor: 'pointer'
+  },
+  clear: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#fff',
+    padding: theme.spacing(0.5),
+    fontSize: theme.spacing(1),
+    borderRadius: '50%',
     cursor: 'pointer'
   }
 })
@@ -100,6 +113,16 @@ class DateTimePicker extends React.Component {
     return this.formatNumber(hours) + ':' + this.formatNumber(minutes)
   }
 
+  clearDate () {
+    this.setState({
+      resultDate: 0,
+      resultTime: 0,
+      date: { ...this.state.date, ...{ startDate: 0 } },
+      time: { hour: 0, minute: 0 }
+    })
+    setTimeout(() => this.onChange())
+  }
+
   changeDate (data) {
     const { date } = this.state
     this.setState({
@@ -171,14 +194,19 @@ class DateTimePicker extends React.Component {
     const formatDate = this.formatDate(resultDate)
     const formatTime = this.formatTime(resultTime)
 
+    console.log(date)
+
     return (
       <Grid className={classes.dateTime}>
-        <Grid className={classes.dateTimeInput}>
-          <Grid><Typography variant={formatDate ? 'body1' : 'body2'}>{formatDate || (language === 'zh-cn' ? '选择日期' : 'Date')}</Typography></Grid>
-          {formatDate &&
-            <Grid className={classes.time} onClick={e => this.setState({ timeAnchor: e.currentTarget })}>
-              <Typography variant={formatTime ? 'body1' : 'body2'}>{formatTime || (language === 'zh-cn' ? '选择时间' : 'Time')}</Typography>
-            </Grid>}
+        <Grid className={[classes.dateTimeInput, classes.flexRow].join(' ')}>
+          <Grid className={classes.flexRow}>
+            <Grid><Typography variant={formatDate ? 'body1' : 'body2'}>{formatDate || (language === 'zh-cn' ? '选择日期' : 'Date')}</Typography></Grid>
+            {formatDate &&
+              <Grid className={classes.time} onClick={e => this.setState({ timeAnchor: e.currentTarget })}>
+                <Typography variant={formatTime ? 'body1' : 'body2'}>{formatTime || (language === 'zh-cn' ? '选择时间' : 'Time')}</Typography>
+              </Grid>}
+          </Grid>
+          <Grid className={[classes.clear, classes.flexRow].join(' ')} onClick={e => this.clearDate()}><FontAwesomeIcon icon={plClose} /></Grid>
         </Grid>
         <DatePickerBase {...date} onChange={data => this.changeDate(data)} />
         <Popover
