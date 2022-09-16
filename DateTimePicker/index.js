@@ -194,8 +194,6 @@ class DateTimePicker extends React.Component {
     const formatDate = this.formatDate(resultDate)
     const formatTime = this.formatTime(resultTime)
 
-    console.log(date)
-
     return (
       <Grid className={classes.dateTime}>
         <Grid className={[classes.dateTimeInput, classes.flexRow].join(' ')}>
