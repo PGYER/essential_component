@@ -96,13 +96,13 @@ const styles = (theme) => ({
     background: theme.palette.primary.main + ' !important'
   },
   dayLabelStart: {
-    borderRadius: '4px 0px 0px 4px'
+    borderRadius: '4px 0px 0px 4px !important'
   },
   dayLabelEnd: {
-    borderRadius: '0px 4px 4px 0px'
+    borderRadius: '0px 4px 4px 0px !important'
   },
   dayLabelStartEnd: {
-    borderRadius: '4px'
+    borderRadius: '4px !important'
   },
   dayLabelRange: {
     background: theme.palette.background.main
@@ -111,14 +111,8 @@ const styles = (theme) => ({
     color: theme.palette.text.lighter
   },
   dayLabelToday: {
-    top: 0,
-    right: 0,
-    width: 0,
-    height: 0,
-    position: 'absolute',
-    border: '3px solid ' + theme.palette.primary.main,
-    borderLeftColor: 'transparent',
-    borderBottomColor: 'transparent'
+    borderRadius: '4px',
+    border: '1px solid ' + theme.palette.primary.main
   },
   dayAfter: {
     width: theme.spacing(1)
@@ -308,6 +302,7 @@ class DatePickerBase extends React.Component {
             let isStartDate = false
             let isEndDate = false
             let isRangeDate = false
+            const isToday = isDate && date.getTime() === nowDate.getTime()
 
             if (isSameMonth) {
               isStartDate = startDate && date.getTime() === startDate.getTime()
@@ -333,7 +328,8 @@ class DatePickerBase extends React.Component {
                     isStartDate && !isEndDate ? classes.dayLabelStart : '',
                     isEndDate && !isStartDate ? classes.dayLabelEnd : '',
                     isStartDate && isEndDate ? classes.dayLabelStartEnd : '',
-                    isRangeDate ? classes.dayLabelRange : ''
+                    isRangeDate ? classes.dayLabelRange : '',
+                    isToday ? classes.dayLabelToday : ''
                   ].filter(item => item).join(' ')}
                   onClick={e => isDate && !disableSelect && this.changeDateRange(date)}
                   onMouseOver={e => {
@@ -343,7 +339,6 @@ class DatePickerBase extends React.Component {
                   }}
                 >
                   {isDate ? date.getDate() : date}
-                  {isDate && date.getTime() === nowDate.getTime() && <Grid className={classes.dayLabelToday} />}
                 </Typography>
                 {(index + 1) % 7 !== 0 &&
                   <Grid className={[
