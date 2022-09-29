@@ -111,6 +111,7 @@ const styles = (theme) => ({
     color: theme.palette.text.lighter
   },
   dayLabelToday: {
+    lineHeight: '22px',
     borderRadius: '4px',
     border: '1px solid ' + theme.palette.primary.main
   },
