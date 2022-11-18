@@ -201,7 +201,7 @@ class DateTimePicker extends React.Component {
             <Grid><Typography variant={formatDate ? 'body1' : 'body2'}>{formatDate || (language === 'zh-cn' ? '选择日期' : 'Date')}</Typography></Grid>
             {formatDate &&
               <Grid className={classes.time} onClick={e => this.setState({ timeAnchor: e.currentTarget })}>
-                <Typography variant={formatTime ? 'body1' : 'body2'}>{formatTime || (language === 'zh-cn' ? '选择时间' : 'Time')}</Typography>
+                <Typography variant='body1'>{formatTime || '00:00'}</Typography>
               </Grid>}
           </Grid>
           <Grid className={[classes.clear, classes.flexRow].join(' ')} onClick={e => this.clearDate()}><FontAwesomeIcon icon={plClose} /></Grid>
