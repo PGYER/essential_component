@@ -249,13 +249,13 @@ class DatePickerBase extends React.Component {
   }
 
   render () {
-    const { mode, divideDate, divideType, year, month, onChange, hidePrevious, hideNext, classes } = this.props
+    const { mode, divideDate, divideType, year, month, onChange, hidePrevious, hideNext, timezoneOffset, classes } = this.props
     const { days, showSelectYear, showSelectMonth } = this.state
 
     const startDate = this.timeStampToDate(this.props.startDate)
     const endDate = this.timeStampToDate(this.props.endDate)
     const endDateTmp = this.timeStampToDate(this.props.endDateTmp)
-    const nowDate = this.timeStampToDate(new Date().getTime())
+    const nowDate = this.timeStampToDate(new Date().getTime() + (timezoneOffset || 0))
     const years = showSelectYear && this.getYearRange()
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -396,6 +396,7 @@ DatePickerBase.propTypes = {
   language: PropTypes.oneOf(['zh-cn', 'en-us']),
   hidePrevious: PropTypes.bool,
   hideNext: PropTypes.bool,
+  timezoneOffset: PropTypes.number,
   classes: PropTypes.object.isRequired
 }
 

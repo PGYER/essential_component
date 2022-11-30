@@ -18,7 +18,8 @@ class DatePicker extends React.Component {
       startDate: !props.startDate ? 0 : props.startDate,
       endDate: props.startDate && props.mode !== 'range' ? props.startDate : (!props.endDate ? 0 : props.endDate),
       endDateTmp: 0,
-      language: !props.language ? 'zh-cn' : props.language
+      language: !props.language ? 'zh-cn' : props.language,
+      timezoneOffset: props.timezoneOffset || 0
     }
   }
 
@@ -52,6 +53,7 @@ DatePicker.propTypes = {
   divideType: PropTypes.oneOf([undefined, 'before', 'after']),
   startDate: PropTypes.number,
   endDate: PropTypes.number,
+  timezoneOffset: PropTypes.number,
   onChange: PropTypes.func.isRequired,
   language: PropTypes.oneOf(['zh-cn', 'en-us'])
 }

@@ -59,7 +59,8 @@ class DateTimePicker extends React.Component {
         divideDate: props.divideTime > 0 ? new Date(this.timeStampToDate(props.divideTime)).getTime() : 0,
         divideType: props.divideType,
         startDate: props.time && props.time > 0 ? new Date(this.timeStampToDate(props.time)).getTime() : 0,
-        language: !props.language ? 'zh-cn' : props.language
+        language: !props.language ? 'zh-cn' : props.language,
+        timezoneOffset: props.timezoneOffset || 0
       },
       time: {
         hour: this.timeStampToTime(props.time) ? this.timeStampToTime(props.time).split(':')[0] : 0,
@@ -235,6 +236,7 @@ DateTimePicker.propTypes = {
   time: PropTypes.number,
   onChange: PropTypes.func.isRequired,
   language: PropTypes.oneOf(['zh-cn', 'en-us']),
+  timezoneOffset: PropTypes.number,
   classes: PropTypes.object.isRequired
 }
 

@@ -49,7 +49,8 @@ class DatePickerRange extends React.Component {
       endDate: !props.endDate ? 0 : props.endDate,
       endDateTmp: 0,
       language: !props.language ? 'zh-cn' : props.language,
-      btnOffset: 7
+      btnOffset: 7,
+      timezoneOffset: props.timezoneOffset || 0
     }
   }
 
@@ -181,6 +182,7 @@ DatePickerRange.propTypes = {
   endDate: PropTypes.number,
   onChange: PropTypes.func,
   onClose: PropTypes.func,
+  timezoneOffset: PropTypes.number,
   language: PropTypes.oneOf(['zh-cn', 'en-us']),
   classes: PropTypes.object.isRequired
 }
