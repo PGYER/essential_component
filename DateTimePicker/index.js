@@ -47,7 +47,7 @@ const styles = (theme) => ({
 class DateTimePicker extends React.Component {
   constructor (props) {
     super(props)
-    const now = props.divideTime > 0 ? new Date(props.divideTime) : new Date()
+    const now = props.divideTime > 0 ? new Date(props.divideTime) : new Date(new Date().getTime() + (props.timezoneOffset || 0))
 
     this.state = {
       timeAnchor: null,

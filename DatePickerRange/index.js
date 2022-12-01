@@ -40,7 +40,7 @@ const styles = theme => ({
 class DatePickerRange extends React.Component {
   constructor (props) {
     super(props)
-    const now = new Date()
+    const now = new Date(new Date().getTime() + (props.timezoneOffset || 0))
     this.state = {
       mode: 'range',
       year: now.getFullYear(),

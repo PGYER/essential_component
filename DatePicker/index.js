@@ -8,7 +8,7 @@ import DatePickerBase from './DatePickerBase'
 class DatePicker extends React.Component {
   constructor (props) {
     super(props)
-    const now = props.divideDate > 0 ? new Date(props.divideDate) : new Date()
+    const now = props.divideDate > 0 ? new Date(props.divideDate) : new Date(new Date().getTime() + (props.timezoneOffset || 0))
     this.state = {
       mode: props.mode,
       divideDate: props.divideDate,
