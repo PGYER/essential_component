@@ -41,6 +41,9 @@ const styles = (theme) => ({
     fontSize: theme.spacing(1),
     borderRadius: '50%',
     cursor: 'pointer'
+  },
+  timePopover: {
+    zIndex: '1302 !important'
   }
 })
 
@@ -213,7 +216,7 @@ class DateTimePicker extends React.Component {
           elevation={10}
           id='time-picker'
           anchorEl={timeAnchor}
-          classes={{ paper: classes.popover }}
+          classes={{ paper: classes.popover, root: classes.timePopover }}
           onClose={() => this.setState({ timeAnchor: null })}
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
           transformOrigin={{ horizontal: 'left', vertical: -4 }}
