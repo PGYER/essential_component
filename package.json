@@ -1,9 +1,8 @@
 {
   "name": "@pgyer/essential-component",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "essential component for pgyer's mui-based project",
   "main": "index.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/PGYER/essential_component.git"
