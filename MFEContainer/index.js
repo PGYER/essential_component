@@ -145,6 +145,7 @@ class MFEContainer extends React.Component {
       return false
     }
 
+    window[this.appID] &&
     window[this.appID].hooks &&
     typeof window[this.appID].hooks.mount === 'function' &&
     window[this.appID].hooks.mount({
